@@ -5,7 +5,7 @@
 void printElem(int [*][COLS]);
 void sumRow(int [*][*]);
 void sumColumn(int [*][*]);
-//void sumAll(int [*][*]);
+void sumAll(int [*][*]);
 
 int main(){
 	
@@ -18,6 +18,7 @@ int main(){
 	printElem(ar);
 	sumRow(ar);
 	sumColumn(ar);
+	sumAll(ar);
 						 
 	/*
 	int row, column;
@@ -91,21 +92,17 @@ void sumColumn(int ar1[][COLS])
 	int row, column, sum;
 	
 	printf("\n Sum in each column: \n");
-
 	
 	for(row = 0; row < ROW; row++){
 		for(column = 0; column < COLS; column++){
 			
 			printf(" %3d ", ar1[row][column]);
-			
 		}
 		
-		printf("\n");
+		printf("\n");	
 	}
 	
-
-	
-	printf("\n");
+	printf("\n\n");
 	
 	for(row = 0; row < COLS; row++){
 		for(column = 0; column < ROW; column++){
@@ -114,6 +111,22 @@ void sumColumn(int ar1[][COLS])
 		}
 		
 		printf(" %3d ", sum);
-		sum = 0;
+		sum = 0;	
 	}
+}
+
+void sumAll(int ar1[][COLS])
+{
+	int row, column, sum;
+	
+	printf("\n Sum of all elements: \n");
+	
+	for(row = 0; row < ROW; row++){
+		for(column = 0; column < COLS; column++){
+			
+			sum += ar1[row][column];
+		}		
+	}
+	
+	printf(" = %d\n", sum);
 }
